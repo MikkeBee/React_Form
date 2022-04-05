@@ -1,25 +1,40 @@
 import "./index";
 import React, { Component } from "react";
 import Forms from "./components/Form";
+import View from "./components/View";
+import Modal from "./components/Modal";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header"></header>
-      <Forms />
-      <div>
-        <div className="paperArea">
-          <div className="vertical">
-            <p className="firstP">Hello</p>
-            <p>Test</p>
-            <p></p>
-            <p></p>
-            <p></p>
-          </div>
-        </div>
+class App extends Component {
+  state = {
+    firstname: "",
+    lastname: "",
+    phonenumber: "",
+    role: "",
+    message: "",
+  };
+
+  formHandler = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header"></header>
+        <Forms />
+        <View
+          firstname={this.state.firstname}
+          lastname={this.state.lastname}
+          phonenumber={this.state.phonenumber}
+          role={this.state.role}
+          message={this.state.message}
+        />
+        <Modal />
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
