@@ -66,7 +66,12 @@ textarea {
 }
 
 .sendButton {
+  margin: 0.5rem;
   width: 17.5rem;
+  height: 3rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #4d5c28;
   border: none;
   color: whitesmoke;
@@ -111,7 +116,7 @@ textarea {
 }
 
 .overlay {
-  visibility: hidden;
+  /* visibility: hidden; remove because it won't render when using state */
   position: fixed;
   top: 0;
   left: 0;

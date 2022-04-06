@@ -6,11 +6,21 @@ const Modal = (props) => {
       <div className="modalWindow">
         <div className="modalContent">
           <h2>Your note:</h2>
-          <p>First Name:</p>
-          <p>Last Name:</p>
-          <p>Phone Number:</p>
-          <p>Role:</p>
-          <p>Message:</p>
+          <p>
+            First Name: <span>{props.firstname}</span>
+          </p>
+          <p>
+            Last Name: <span>{props.lastname}</span>
+          </p>
+          <p>
+            Phone Number: <span>{props.phonenumber}</span>
+          </p>
+          <p>
+            Role: <span>{props.role}</span>
+          </p>
+          <p>
+            Message: <span>{props.message}</span>
+          </p>
           <div className="buttonArea">
             <button type="button" className="imSure">
               Yes, I am sure

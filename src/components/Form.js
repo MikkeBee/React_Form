@@ -1,30 +1,46 @@
 import React from "react";
-
+//in order for this to work, name has to be given, not just className
 const Forms = (props) => {
   return (
     <form className="formyform">
       <div className="inputArea">
         <label>First Name</label>
-        <input type="text" className="firstname" onChange={props.formHandler} />
+        <input
+          type="text"
+          className="firstname"
+          name="firstname"
+          onChange={props.formHandler}
+        />
       </div>
       <div className="inputArea">
         <label>Last Name</label>
-        <input type="text" className="lastname" onChange={props.formHandler} />
+        <input
+          type="text"
+          className="lastname"
+          name="lastname"
+          onChange={props.formHandler}
+        />
       </div>
       <div className="inputArea">
         <label>Phone Number</label>
         <input
           type="number"
           className="phonenumber"
+          name="phonenumber"
           onChange={props.formHandler}
         />
       </div>
       <div className="inputArea">
         <label>Role</label>
-        <select name="role" className="role">
-          {/* <option value="" disabled selected>
+        <select
+          defaultValue="default"
+          name="role"
+          className="role"
+          onChange={props.formHandler}
+        >
+          <option value="default" hidden>
             Select your role
-          </option> Ask Margit about this*/}
+          </option>
           <option value="Teacher">Teacher</option>
           <option value="Student">Student</option>
           <option value="Other">Other</option>
@@ -40,7 +56,9 @@ const Forms = (props) => {
         ></textarea>
       </div>
       <div className="buttonBox">
-        <input type="submit" value="Send" className="sendButton" />
+        <button className="sendButton" onClick={props.modalHandler}>
+          Send
+        </button>
       </div>
     </form>
   );

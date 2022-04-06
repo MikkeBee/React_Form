@@ -11,19 +11,34 @@ class App extends Component {
     phonenumber: "",
     role: "",
     message: "",
+    showModal: false,
   };
 
   formHandler = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.value);
     this.setState({
-      [event.target.name]: event.target.value,
+      ...this.state, //copies the current object
+      [event.target.name]: event.target.value, //overrides the object values for changed fields
     });
   };
 
+  modalHandler = (e) => {
+    e.preventDefault();
+    console.log(this.state.showModal);
+    this.setState({ ...this.state, showModal: !this.state.showModal }); //changes boolean of showModal to opposite
+  };
+
   render() {
+    // const { firstname, lastname, phonenumber, role, message } = this.state;
+    // destructuring format - with this, this.state.xxx can be shortened to just xxx
     return (
       <div className="App">
         <header className="App-header"></header>
-        <Forms />
+        <Forms
+          formHandler={this.formHandler}
+          modalHandler={this.modalHandler}
+        />
         <View
           firstname={this.state.firstname}
           lastname={this.state.lastname}
@@ -31,7 +46,16 @@ class App extends Component {
           role={this.state.role}
           message={this.state.message}
         />
-        <Modal />
+        {this.state.showModal && (
+          <Modal
+            firstname={this.state.firstname}
+            lastname={this.state.lastname}
+            phonenumber={this.state.phonenumber}
+            role={this.state.role}
+            message={this.state.message}
+            //showModal is initially false, and this will show the modal only when showModal is true
+          />
+        )}
       </div>
     );
   }
