@@ -6,19 +6,19 @@ const View = (props) => {
       <div className="paperArea">
         <div className="vertical">
           <p className="firstP">
-            First Name <span>{props.firstname}</span>
+            First Name: <span>{props.firstname}</span>
           </p>
           <p>
-            Last Name <span>{props.lastname}</span>
+            Last Name: <span>{props.lastname}</span>
           </p>
           <p>
-            Phone Number <span>{props.phonenumber}</span>
+            Phone Number: <span>{props.phonenumber}</span>
           </p>
           <p>
-            Role <span>{props.role}</span>
+            Role: <span>{props.role}</span>
           </p>
           <p>
-            Message <span>{props.message}</span>
+            Message: <span>{props.message}</span>
           </p>
         </div>
       </div>

@@ -24,7 +24,7 @@ class App extends Component {
       r
       m
       },
-
+      showPopup: false,
     }
     */
 
@@ -50,6 +50,13 @@ class App extends Component {
     this.setState({ ...this.state, showModal: !this.state.showModal }); //changes boolean of showModal to opposite
   };
 
+  /*
+  popupHandler = (e) => {
+  e.preventDefault();
+  this.setState({showPopup: !this.state.showPopup});
+  };
+  */
+
   reloadEventHandler = () => {
     window.location.reload();
   };
@@ -63,8 +70,12 @@ class App extends Component {
         <Forms
           formHandler={this.formHandler}
           modalHandler={this.modalHandler}
+          /*submit={this.popupHandler}
+          on form page add this popupHandler, and add "submit" type to button
+*/
         />
         <View
+          // {...this.state.inputData} using this no need to declare the below names
           firstname={this.state.firstname}
           lastname={this.state.lastname}
           phonenumber={this.state.phonenumber}
@@ -81,6 +92,10 @@ class App extends Component {
             reloadHandler={this.reloadEventHandler}
             //showModal is initially false, and this will show the modal only when showModal is true
           />
+          /*
+          {this.state.showModal && <Modal />} this will handle toggling the button on and off
+
+        */
         )}
       </div>
     );
