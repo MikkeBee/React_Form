@@ -14,12 +14,36 @@ class App extends Component {
     showModal: false,
   };
 
+  /*
+    using subclasses
+    state = {
+      inputData: {
+      f
+      l
+      p
+      r
+      m
+      },
+
+    }
+    */
+
   formHandler = (event) => {
     this.setState({
       ...this.state, //copies the current object
       [event.target.name]: event.target.value, //overrides the object values for changed fields
     });
   };
+
+  /*
+  when using subclasses and making an event handler
+  inputHandler = (e) => {
+  this.setState({
+  inputData: { ...this.state.inputData, [e.target.name]: e.target.value},
+  });
+  };
+  for this calling in "view" would be firstname={this.state.inputData.firstname}
+  */
 
   modalHandler = (e) => {
     e.preventDefault();
