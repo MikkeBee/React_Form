@@ -60,6 +60,7 @@ class App extends Component {
   reloadEventHandler = () => {
     window.location.reload();
   };
+  //reloads page after modal close
 
   render() {
     // const { firstname, lastname, phonenumber, role, message } = this.state;
