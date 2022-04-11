@@ -15,8 +15,6 @@ class App extends Component {
   };
 
   formHandler = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     this.setState({
       ...this.state, //copies the current object
       [event.target.name]: event.target.value, //overrides the object values for changed fields
@@ -25,8 +23,11 @@ class App extends Component {
 
   modalHandler = (e) => {
     e.preventDefault();
-    console.log(this.state.showModal);
     this.setState({ ...this.state, showModal: !this.state.showModal }); //changes boolean of showModal to opposite
+  };
+
+  reloadEventHandler = () => {
+    window.location.reload();
   };
 
   render() {
@@ -53,6 +54,7 @@ class App extends Component {
             phonenumber={this.state.phonenumber}
             role={this.state.role}
             message={this.state.message}
+            reloadHandler={this.reloadEventHandler}
             //showModal is initially false, and this will show the modal only when showModal is true
           />
         )}

@@ -22,10 +22,18 @@ const Modal = (props) => {
             Message: <span>{props.message}</span>
           </p>
           <div className="buttonArea">
-            <button type="button" className="imSure">
+            <button
+              type="button"
+              className="imSure"
+              onClick={props.reloadHandler}
+            >
               Yes, I am sure
             </button>
-            <button type="button" className="notSure">
+            <button
+              type="button"
+              className="notSure"
+              onClick={props.reloadHandler}
+            >
               Nope, don't want to post it
             </button>
           </div>

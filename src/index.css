@@ -110,9 +110,13 @@ textarea {
 }
 
 .paperArea p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-left: 5rem;
   line-height: 0.8rem;
+}
+
+.paperArea span {
+  font-family: "Architects Daughter", cursive;
 }
 
 .overlay {
@@ -133,7 +137,7 @@ textarea {
   background-color: white;
   padding: 0.5rem 2rem;
   width: 50%;
-  height: 40%;
+  height: 28%;
   border-radius: 5px;
   position: relative;
 }
@@ -147,7 +151,7 @@ textarea {
   justify-content: space-around;
 }
 
-.buttonArea button {
+.imSure {
   margin-top: 1rem;
   height: 3rem;
   width: 25rem;
@@ -156,6 +160,30 @@ textarea {
   border-radius: 5px;
   border: none;
   font-size: 1.2rem;
+}
+
+.imSure:hover {
+  box-shadow: 0 0 5px #000000;
+}
+
+.notSure {
+  margin-top: 1rem;
+  height: 3rem;
+  width: 25rem;
+  background-color: transparent;
+  color: rgb(35, 35, 35);
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.notSure:hover {
+  margin-top: 1rem;
+  height: 3rem;
+  width: 25rem;
+  background-color: #4d5c28;
+  color: whitesmoke;
+  box-shadow: 0 0 5px #000000;
 }
 
 .modalContent p {
