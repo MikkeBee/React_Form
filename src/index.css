@@ -15,6 +15,10 @@ body {
   margin: 3rem;
 }
 
+.upperHalf {
+  display: flex;
+}
+
 .formyform {
   display: flex;
   flex-direction: column;
@@ -75,15 +79,24 @@ textarea {
   background-color: #4d5c28;
   border: none;
   color: whitesmoke;
+  box-shadow: inset 0 0 7px #333b1f, inset 0 0 12px #2f361d;
+  transition: 0.5s;
+}
+
+.sendButton:active {
+  transform: translateY(4px);
+  transition: 0.5s;
+  box-shadow: inset 0 0 10px #292f1a, inset 0 0 16px #242917;
 }
 
 .paperArea {
-  margin-top: 5rem;
+  margin-left: 3rem;
   background-color: white;
-  width: 100%;
+  width: 70vw;
   height: 475px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 0 10px black, 0 0 10px black;
 }
 
 .paperArea::before {
@@ -189,4 +202,10 @@ textarea {
 .modalContent p {
   margin-top: 2.1rem;
   font-size: 1rem;
+}
+
+.dataDiv {
+  background-color: aliceblue;
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
 }

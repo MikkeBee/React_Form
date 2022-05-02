@@ -25,7 +25,7 @@ const Modal = (props) => {
             <button
               type="button"
               className="imSure"
-              onClick={props.reloadHandler}
+              onClick={props.submitHandler}
             >
               Yes, I am sure
             </button>

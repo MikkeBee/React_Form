@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Forms from "./components/Form";
 import View from "./components/View";
 import Modal from "./components/Modal";
+import Data from "./components/Data";
+import axios from "axios";
 
 class App extends Component {
   state = {
@@ -57,6 +59,13 @@ class App extends Component {
   };
   */
 
+  submitHandler = () => {
+    axios
+      .post("http://localhost:3010/notes", { data })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
+
   reloadEventHandler = () => {
     window.location.reload();
   };
@@ -68,21 +77,24 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header"></header>
-        <Forms
-          formHandler={this.formHandler}
-          modalHandler={this.modalHandler}
-          /*submit={this.popupHandler}
+        <div className="upperHalf">
+          <Forms
+            formHandler={this.formHandler}
+            modalHandler={this.modalHandler}
+            /*submit={this.popupHandler}
           on form page add this popupHandler, and add "submit" type to button
 */
-        />
-        <View
-          // {...this.state.inputData} using this no need to declare the below names
-          firstname={this.state.firstname}
-          lastname={this.state.lastname}
-          phonenumber={this.state.phonenumber}
-          role={this.state.role}
-          message={this.state.message}
-        />
+          />
+          <View
+            // {...this.state.inputData} using this no need to declare the below names
+            firstname={this.state.firstname}
+            lastname={this.state.lastname}
+            phonenumber={this.state.phonenumber}
+            role={this.state.role}
+            message={this.state.message}
+          />
+        </div>
+        <Data />
         {this.state.showModal && (
           <Modal
             firstname={this.state.firstname}
@@ -91,6 +103,7 @@ class App extends Component {
             role={this.state.role}
             message={this.state.message}
             reloadHandler={this.reloadEventHandler}
+            submitHandler={this.submitHandler}
             //showModal is initially false, and this will show the modal only when showModal is true
           />
           /*

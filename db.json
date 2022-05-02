@@ -1,0 +1,36 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "firstname": "John",
+      "lastname": "Doe",
+      "phone": "6516841",
+      "role": "teacher",
+      "message": "agjlöagölkag"
+    },
+    {
+      "id": 2,
+      "firstname": "Santa",
+      "lastname": "Claus",
+      "phone": "68138468",
+      "role": "other",
+      "message": "hohoho"
+    },
+    {
+      "id": 3,
+      "firstname": "Darth",
+      "lastname": "Vader",
+      "phone": "644651684",
+      "role": "other",
+      "message": "I am your father"
+    },
+    {
+      "id": 4,
+      "firstname": "Bruce",
+      "lastname": "Dickinson",
+      "phone": "666017",
+      "role": "teacher",
+      "message": "I need more cowbell"
+    }
+  ]
+}
