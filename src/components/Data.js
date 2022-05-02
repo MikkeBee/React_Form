@@ -1,32 +1,16 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
 
-class Data extends Component {
-  state = {
-    notes: [],
-    isLoading: true,
-  };
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    axios
-      .get("http://localhost:3010/notes")
-      .then((response) =>
-        this.setState({ notes: response.data, isLoading: false })
-      );
-  }
-  render() {
-    return (
-      <div className="dataDiv">
-        {this.state.notes.map((note) => (
-          <p>
-            {note.id}. {note.firstname} {note.lastname} | {note.phone} |{" "}
-            {note.role} | {note.message}
-          </p>
-        ))}
-      </div>
-    );
-  }
-}
+const Data = (props) => {
+  return (
+    <ol className="dataDiv">
+      {props.notes.map((note) => (
+        <li key={note.id}>
+          {note.firstname} {note.lastname} | {note.phone} | {note.role} |{" "}
+          {note.message}
+        </li>
+      ))}
+    </ol>
+  );
+};
 
 export default Data;

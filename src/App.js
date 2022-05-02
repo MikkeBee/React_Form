@@ -8,13 +8,22 @@ import axios from "axios";
 
 class App extends Component {
   state = {
-    firstname: "",
-    lastname: "",
-    phonenumber: "",
-    role: "",
-    message: "",
+    inputData: {
+      firstname: "",
+      lastname: "",
+      phonenumber: "",
+      role: "",
+      message: "",
+    },
     showModal: false,
+    notes: [],
   };
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3010/notes")
+      .then((response) => this.setState({ notes: response.data }));
+  }
 
   /*
     using subclasses
@@ -32,8 +41,10 @@ class App extends Component {
 
   formHandler = (event) => {
     this.setState({
-      ...this.state, //copies the current object
-      [event.target.name]: event.target.value, //overrides the object values for changed fields
+      inputData: {
+        ...this.state.inputData, //copies the current object
+        [event.target.name]: event.target.value,
+      }, //overrides the object values for changed fields
     });
   };
 
@@ -49,7 +60,7 @@ class App extends Component {
 
   modalHandler = (e) => {
     e.preventDefault();
-    this.setState({ ...this.state, showModal: !this.state.showModal }); //changes boolean of showModal to opposite
+    this.setState({ showModal: !this.state.showModal }); //changes boolean of showModal to opposite
   };
 
   /*
@@ -61,9 +72,11 @@ class App extends Component {
 
   submitHandler = () => {
     axios
-      .post("http://localhost:3010/notes", { data })
+      .post("http://localhost:3010/notes", this.state.inputData)
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
+
+    window.location.reload();
   };
 
   reloadEventHandler = () => {
@@ -87,21 +100,23 @@ class App extends Component {
           />
           <View
             // {...this.state.inputData} using this no need to declare the below names
-            firstname={this.state.firstname}
-            lastname={this.state.lastname}
-            phonenumber={this.state.phonenumber}
-            role={this.state.role}
-            message={this.state.message}
+            // firstname={this.state.firstname}
+            // lastname={this.state.lastname}
+            // phonenumber={this.state.phonenumber}
+            // role={this.state.role}
+            // message={this.state.message}
+            {...this.state.inputData}
           />
         </div>
-        <Data />
+        <Data notes={this.state.notes} />
         {this.state.showModal && (
           <Modal
-            firstname={this.state.firstname}
-            lastname={this.state.lastname}
-            phonenumber={this.state.phonenumber}
-            role={this.state.role}
-            message={this.state.message}
+            // firstname={this.state.firstname}
+            // lastname={this.state.lastname}
+            // phonenumber={this.state.phonenumber}
+            // role={this.state.role}
+            // message={this.state.message}
+            {...this.state.inputData}
             reloadHandler={this.reloadEventHandler}
             submitHandler={this.submitHandler}
             //showModal is initially false, and this will show the modal only when showModal is true
