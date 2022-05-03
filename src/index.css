@@ -25,11 +25,28 @@ body {
   max-width: 28rem;
 }
 
+.formyformyform {
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
+}
+
 .inputArea {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+}
+
+.inputArea2 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: right;
+}
+
+.inputArea2 label {
+  color: black;
 }
 
 label {
@@ -92,7 +109,7 @@ textarea {
 .paperArea {
   margin-left: 3rem;
   background-color: white;
-  width: 70vw;
+  width: 60vw;
   height: 475px;
   overflow: hidden;
   position: relative;
@@ -146,16 +163,43 @@ textarea {
   align-items: center;
 }
 
+.overlay2 {
+  /* visibility: hidden; remove because it won't render when using state */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.9);
+  z-index: 90;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modalWindow {
   background-color: white;
   padding: 0.5rem 2rem;
   width: 42%;
-  height: 28%;
+  height: 52%;
   border-radius: 5px;
   position: relative;
 }
 
 .modalWindow h2 {
+  font-size: 2.5rem;
+}
+
+.modalWindow2 {
+  background-color: white;
+  padding: 0.5rem 2rem;
+  width: 30%;
+  height: 52%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.modalWindow2 h2 {
   font-size: 2.5rem;
 }
 
@@ -204,8 +248,19 @@ textarea {
   font-size: 1rem;
 }
 
+.modalContent2 p {
+  margin-top: 2.1rem;
+  font-size: 1rem;
+}
+
 .dataDiv {
   background-color: aliceblue;
   margin-top: 1.5rem;
   padding: 1rem 2rem;
+}
+
+.delButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

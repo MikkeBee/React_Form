@@ -4,6 +4,7 @@ import Forms from "./components/Form";
 import View from "./components/View";
 import Modal from "./components/Modal";
 import Data from "./components/Data";
+import Update from "./components/Update";
 import axios from "axios";
 
 class App extends Component {
@@ -16,7 +17,9 @@ class App extends Component {
       message: "",
     },
     showModal: false,
+    showModal2: false,
     notes: [],
+    currentNote: {},
   };
 
   componentDidMount() {
@@ -25,19 +28,33 @@ class App extends Component {
       .then((response) => this.setState({ notes: response.data }));
   }
 
-  /*
-    using subclasses
-    state = {
-      inputData: {
-      f
-      l
-      p
-      r
-      m
+  deleteHandler = (id) => {
+    axios.delete(`http://localhost:3010/notes/${id}`).then((res) => {
+      const items = this.state.notes.filter((item) => item.id !== id);
+      console.log("delete mofo!");
+      this.setState({ notes: items });
+    });
+  };
+
+  openHandler = (note) => {
+    this.setState({ showModal2: true, currentNote: note });
+  };
+
+  inputUpdateHandler = (event) => {
+    this.setState({
+      currentNote: {
+        ...this.state.currentNote,
+        [event.target.name]: event.target.value,
       },
-      showPopup: false,
-    }
-    */
+    });
+  };
+
+  postHandler = (id) => {
+    axios
+      .put(`http://localhost:3010/notes/${id}`, this.state.currentNote)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
 
   formHandler = (event) => {
     this.setState({
@@ -47,16 +64,6 @@ class App extends Component {
       }, //overrides the object values for changed fields
     });
   };
-
-  /*
-  when using subclasses and making an event handler
-  inputHandler = (e) => {
-  this.setState({
-  inputData: { ...this.state.inputData, [e.target.name]: e.target.value},
-  });
-  };
-  for this calling in "view" would be firstname={this.state.inputData.firstname}
-  */
 
   modalHandler = (e) => {
     e.preventDefault();
@@ -98,6 +105,13 @@ class App extends Component {
           on form page add this popupHandler, and add "submit" type to button
 */
           />
+          {this.state.showModal2 && (
+            <Update
+              {...this.state.currentNote}
+              poster={() => this.postHandler(this.state.currentNote.id)}
+              input={this.inputUpdateHandler}
+            />
+          )}
           <View
             // {...this.state.inputData} using this no need to declare the below names
             // firstname={this.state.firstname}
@@ -108,14 +122,13 @@ class App extends Component {
             {...this.state.inputData}
           />
         </div>
-        <Data notes={this.state.notes} />
+        <Data
+          notes={this.state.notes}
+          deleteHandler={this.deleteHandler}
+          opener={this.openHandler}
+        />
         {this.state.showModal && (
           <Modal
-            // firstname={this.state.firstname}
-            // lastname={this.state.lastname}
-            // phonenumber={this.state.phonenumber}
-            // role={this.state.role}
-            // message={this.state.message}
             {...this.state.inputData}
             reloadHandler={this.reloadEventHandler}
             submitHandler={this.submitHandler}

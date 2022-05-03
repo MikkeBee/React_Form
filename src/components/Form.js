@@ -10,11 +10,23 @@ const Forms = (props) => {
     >
       <div className="inputArea">
         <label>First Name</label>
-        <input type="text" className="firstname" name="firstname" required />
+        <input
+          type="text"
+          className="firstname"
+          name="firstname"
+          required
+          defaultValue={props.firstname}
+        />
       </div>
       <div className="inputArea">
         <label>Last Name</label>
-        <input type="text" className="lastname" name="lastname" required />
+        <input
+          type="text"
+          className="lastname"
+          name="lastname"
+          required
+          defaultValue={props.lastname}
+        />
       </div>
       <div className="inputArea">
         <label>Phone Number</label>
@@ -23,6 +35,7 @@ const Forms = (props) => {
           className="phonenumber"
           name="phonenumber"
           required
+          defaultValue={props.phonenumber}
         />
       </div>
       <div className="inputArea">
@@ -38,7 +51,12 @@ const Forms = (props) => {
       </div>
       <div className="inputArea">
         <label>Message</label>
-        <textarea name="message" className="messanger" required />
+        <textarea
+          name="message"
+          className="messanger"
+          required
+          defaultValue={props.message}
+        />
       </div>
       <div className="buttonBox">
         <button className="sendButton">

@@ -1,44 +1,36 @@
 {
   "notes": [
     {
-      "id": 1,
-      "firstname": "John",
-      "lastname": "Doe",
-      "phone": "6516841",
-      "role": "teacher",
-      "message": "agjlöagölkag"
-    },
-    {
-      "id": 2,
-      "firstname": "Santa",
-      "lastname": "Claus",
-      "phone": "68138468",
-      "role": "other",
-      "message": "hohoho"
-    },
-    {
-      "id": 3,
-      "firstname": "Darth",
-      "lastname": "Vader",
-      "phone": "644651684",
-      "role": "other",
-      "message": "I am your father"
-    },
-    {
-      "id": 4,
-      "firstname": "Bruce",
-      "lastname": "Dickinson",
-      "phone": "666017",
-      "role": "teacher",
-      "message": "I need more cowbell"
-    },
-    {
-      "firstname": "This is",
-      "lastname": "just a test",
-      "phonenumber": "3252113",
+      "firstname": "Freddie",
+      "lastname": "Mercury",
+      "phonenumber": "6138498",
       "role": "Student",
-      "message": "Still a test, but cooler.",
-      "id": 5
+      "message": "Don't stop me now",
+      "id": 2
+    },
+    {
+      "firstname": "Hello",
+      "lastname": "Mikke",
+      "phonenumber": "681384",
+      "role": "Teacher",
+      "message": "öoaspouh",
+      "id": 3
+    },
+    {
+      "firstname": "Mikke",
+      "lastname": "B",
+      "phonenumber": "444444",
+      "role": "Student",
+      "message": "adgagf",
+      "id": 7
+    },
+    {
+      "firstname": "Mikke",
+      "lastname": "Bl",
+      "phonenumber": "61816",
+      "role": "Student",
+      "message": "daaaa",
+      "id": 8
     }
   ]
 }
