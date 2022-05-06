@@ -1,6 +1,7 @@
 import React from "react";
 
 const Data = (props) => {
+  console.log(props);
   return (
     <ol className="dataDiv">
       {props.notes.map((note) => (
@@ -10,16 +11,16 @@ const Data = (props) => {
           <button
             type="button"
             className="delButton"
-            onClick={() => props.deleteHandler(note.id)}
+            onClick={() => props.opener(note)}
           >
-            <i className="fa-solid fa-trash-can"></i>
+            <i className="fa-solid fa-pencil"></i>
           </button>
           <button
             type="button"
             className="delButton"
-            onClick={() => props.opener(note)}
+            onClick={() => props.deleteHandler(note.id)}
           >
-            <i className="fa-solid fa-pencil"></i>
+            <i className="fa-solid fa-trash-can"></i>
           </button>
         </li>
       ))}

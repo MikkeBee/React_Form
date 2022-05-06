@@ -20,17 +20,25 @@
       "firstname": "Mikke",
       "lastname": "B",
       "phonenumber": "444444",
-      "role": "Student",
-      "message": "adgagf",
+      "role": "Other",
+      "message": "amaaaa",
       "id": 7
     },
     {
-      "firstname": "Mikke",
-      "lastname": "Bl",
-      "phonenumber": "61816",
-      "role": "Student",
-      "message": "daaaa",
-      "id": 8
+      "firstname": "Jimi",
+      "lastname": "Hendrix",
+      "phonenumber": "1234567",
+      "role": "Teacher",
+      "message": "guitarist",
+      "id": 9
+    },
+    {
+      "firstname": "James",
+      "lastname": "Bond",
+      "phonenumber": "007",
+      "role": "",
+      "message": "asdöfaöghöagha",
+      "id": 10
     }
   ]
 }
